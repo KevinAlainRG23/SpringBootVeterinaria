@@ -25,18 +25,19 @@ public class Pago {
     private long idPago;
 
     @NotBlank
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="tipo_pago")
     private String tipoPago;
 
     @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="fecha_pago")
     private LocalDateTime fechaPago;
 
     @NotNull
     private BigDecimal monto;
 
+    @OneToOne(targetEntity = Cita.class,cascade = CascadeType.ALL)
+    @JoinColumn(name="id_cita")
+    private Cita cita;
 
 
 }

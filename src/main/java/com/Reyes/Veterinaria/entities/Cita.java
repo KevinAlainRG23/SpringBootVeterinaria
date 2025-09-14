@@ -27,4 +27,16 @@ public class Cita {
     @NotNull
     private LocalTime hora;
 
+    @OneToOne(targetEntity = Doctor.class, cascade = CascadeType.ALL)
+    @JoinColumn(name="id_doctor")
+private Doctor doctor;
+@OneToOne(targetEntity = Duenio.class, cascade = CascadeType.ALL)
+@JoinColumn(name="id_duenio")
+private Duenio duenio;
+@OneToOne(targetEntity = Mascota.class, cascade = CascadeType.ALL)
+@JoinColumn(name="id_mascota")
+private Mascota mascota;
+
+
+
 }

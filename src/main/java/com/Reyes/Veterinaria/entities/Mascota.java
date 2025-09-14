@@ -26,5 +26,8 @@ public class Mascota {
 
     private String raza;
 
+    @ManyToOne(targetEntity = Duenio.class)
+    @JoinColumn(name="id_duenio")
+private  Duenio duenio;
 
 }

@@ -13,14 +13,12 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
 @Entity
-
 public class Cita {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_cita")
-    private long IdCita;
+    private long idCita;
 
     @NotNull
     private LocalDate fecha;

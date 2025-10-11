@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class DcotorServiceImpl implements IDoctorService {
+public class DoctorServiceImpl implements IDoctorService {
     @Autowired
     private IDoctorDAO doctordao;
 
@@ -19,7 +19,7 @@ public class DcotorServiceImpl implements IDoctorService {
 
     @Override
     public Doctor findById(Long id) {
-        return doctordao.findById(id);
+        return doctordao.findAll(id);
     }
 
     @Override

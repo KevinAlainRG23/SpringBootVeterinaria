@@ -17,11 +17,9 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
-
 public class CitaDTO {
 
-    private long IdCita;
+    private long idCita;
     private LocalDate fecha;
     private LocalTime hora;
     private Doctor doctor;

@@ -4,7 +4,8 @@ import com.Reyes.Veterinaria.entities.Doctor;
 
 import java.util.List;
 import java.util.Optional;
-public class ICitaService
+public interface
+ICitaService
 {
    List<Cita>findAll();
    Optional<Cita> findById(Long id );

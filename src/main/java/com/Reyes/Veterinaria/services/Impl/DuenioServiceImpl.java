@@ -11,7 +11,7 @@ import java.util.Optional;
 public class DuenioServiceImpl implements IDuenioService {
 
    @Autowired
-   private IDueniosDA dueniodao;
+   private IDueniosDAO dueniosdao;
 
 
     @Override
@@ -31,6 +31,6 @@ dueniosdao.save(duenio);
 
     @Override
     public void deleteById(Long id) {
-dueniodao.deleteById(id);
+dueniosdao.deleteById(id);
     }
 }

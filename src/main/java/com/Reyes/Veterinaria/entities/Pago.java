@@ -14,10 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
 @Entity
-
-
 public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

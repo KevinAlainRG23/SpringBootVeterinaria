@@ -4,10 +4,11 @@ import com.Reyes.Veterinaria.entities.Mascota;
 import com.Reyes.Veterinaria.persistences.IMascotaDAO;
 import com.Reyes.Veterinaria.services.IMascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class MascotaServiceImpl implements IMascotaService {
 
     @Autowired
@@ -16,21 +17,21 @@ public class MascotaServiceImpl implements IMascotaService {
 
     @Override
     public List<Mascota> findAll() {
-        return List.of();
+        return mascotadao.findAll();
     }
 
     @Override
     public Optional<Mascota> findById(Long id) {
-        return Optional.empty();
+        return mascotadao.findById(id);
     }
 
     @Override
     public void save(Mascota mascota) {
-
+mascotadao.save(mascota);
     }
 
     @Override
     public void deleteById(Long id) {
-
+mascotadao.deleteById(id);
     }
 }

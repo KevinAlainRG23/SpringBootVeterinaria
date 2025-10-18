@@ -20,7 +20,7 @@ private DoctorReposity repository;
     }
 
     @Override
-    public Optional<Doctor> findId(Long id) {
+    public Optional<Doctor> findById(Long id) {
         return repository.findById(id);
     }
 

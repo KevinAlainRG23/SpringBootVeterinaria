@@ -9,7 +9,7 @@ public interface IDoctorDAO {
 
     List<Doctor> findAll();
 
-    Optional<Doctor> findId(Long id);
+    Optional<Doctor> findById(Long id);
     void save (Doctor doctor);
     void deleteById(Long id);
 

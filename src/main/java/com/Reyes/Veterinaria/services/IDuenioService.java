@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Optional;
 public interface IDuenioService {
     List<Duenio>findAll();
-    Optional<Duenio> findById(Long id);
+    Optional<Duenio> findById(Long idDuenio);
     void save(Duenio duenio);
-    void deleteById(Long id);
+    void deleteById(Long idDuenio);
 }
 

@@ -1,9 +1,12 @@
 package com.Reyes.Veterinaria.Controller.dto;
 
+import com.Reyes.Veterinaria.entities.Mascota;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -11,11 +14,11 @@ import lombok.NoArgsConstructor;
 @Builder
 public class DuenioDTO {
 
-    private long idDueño;
+    private long idDuenio;
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
     private String telefono;
-    private String Correo;
-
+    private String correo;
+    private List<Mascota> mascotas;
 }

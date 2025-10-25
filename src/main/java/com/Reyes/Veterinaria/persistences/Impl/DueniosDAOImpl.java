@@ -21,8 +21,8 @@ private DuenioRepository repository;
     }
 
     @Override
-    public Optional<Duenio> findById(Long id) {
-        return repository.findById(id);
+    public Optional<Duenio> findById(Long idDuenio) {
+        return repository.findById(idDuenio);
     }
 
     @Override
@@ -32,7 +32,7 @@ private DuenioRepository repository;
 
 
     @Override
-    public void deleteById(Long id) {
-        repository.deleteById(id);
+    public void deleteById(Long idDuenio) {
+        repository.deleteById(idDuenio);
     }
 }

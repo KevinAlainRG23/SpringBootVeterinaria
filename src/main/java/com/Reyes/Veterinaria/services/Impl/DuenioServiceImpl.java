@@ -22,7 +22,7 @@ public class DuenioServiceImpl implements IDuenioService {
     }
 
     @Override
-    public Optional<Duenio> findById(Long id) {
+    public Optional<Duenio> findById(Long idDuenio) {
         return dueniosdao.findById(id);
     }
 
@@ -32,7 +32,7 @@ dueniosdao.save(duenio);
     }
 
     @Override
-    public void deleteById(Long id) {
-dueniosdao.deleteById(id);
+    public void deleteById(Long idDuenio) {
+dueniosdao.deleteById(idDuenio);
     }
 }

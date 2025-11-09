@@ -17,57 +17,79 @@ public class MascotaController {
     @Autowired
     private IMascotaService serviceMascota;
 
-    @GetMapping("/findAll")
-    public ResponseEntity<?> findAll(){
-        List<MacotaDTO> mascotaList=serviceMascota.findAll().stream()
+    @GetMapping("/finAll")
+    public ResponseEntity<?> finAll(){
+        List<MacotaDTO> mascotaList = serviceMascota.findAll().stream()
                 .map(mascota -> MacotaDTO.builder()
                         .idMascota(mascota.getIdMascota())
                         .nombre(mascota.getNombre())
                         .tipo(mascota.getTipo())
+                        .raza(mascota.getRaza())
                         .duenio(mascota.getDuenio())
                         .build())
-        .toList();
+                .toList();
 
         return ResponseEntity.ok(mascotaList);
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long idMascota) {
-        Optional<Mascota> mascotaOptional = serviceMascota.findById(idMascota);
+    public ResponseEntity<?> findById(@PathVariable Long idMascota){
+        Optional<Mascota> mascotaOptional =  serviceMascota.findById(idMascota);
 
-if(mascotaOptional.isPresent()){
-     Mascota mascota = mascotaOptional.get();
+        if (mascotaOptional.isPresent()){
+            Mascota mascota = mascotaOptional.get();
 
-     MacotaDTO mascotaDTO =MacotaDTO.builder();
+            MacotaDTO mascotaDto = MacotaDTO.builder()
+                    .idMascota(mascota.getIdMascota())
+                    .nombre(mascota.getNombre())
+                    .tipo(mascota.getTipo())
+                    .raza(mascota.getRaza())
+                    .duenio(mascota.getDuenio())
+                    .build();
 
-}
-
-
-return ResponseEntity.ok(mascotaDTO);
+            return ResponseEntity.ok(mascotaDto);
+        }
+        return ResponseEntity.notFound().build();
     }
 
+    @PostMapping("/save")
+    public ResponseEntity<?> save (@RequestBody MacotaDTO mascotaDto){
+        serviceMascota.save(Mascota.builder()
+                .nombre(mascotaDto.getNombre())
+                .tipo(mascotaDto.getTipo())
+                .raza(mascotaDto.getRaza())
+                .duenio(mascotaDto.getDuenio())
+                .build());
 
-@PutMapping("/update/{id}")
-   public ResponseEntity <?> updateById(@RequestBody MacotaDTO macotaDTO, @PathVariable Long idMascota){
-        Optional<Mascota> optionalMascota=serviceMascota.findById(idMascota);
+        return ResponseEntity.ok("Mascota registrada");
+    }
 
-        if(optionalMascota.isPresent()){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateById(@RequestBody MacotaDTO mascotaDto, @PathVariable Long idMascota){
+        Optional<Mascota> optionalMascota = serviceMascota.findById(idMascota);
+
+        if (optionalMascota.isPresent()){
             Mascota mascota = optionalMascota.get();
-            mascota.setNombre(MacotaDTO);
+            mascota.setNombre(mascotaDto.getNombre());
+            mascota.setTipo(mascotaDto.getTipo());
+            mascota.setRaza(mascotaDto.getRaza());
+            mascota.setDuenio(mascotaDto.getDuenio());
+
+            serviceMascota.save(mascota);
+
             return ResponseEntity.ok("Datos de la mascota actualizados");
         }
-        return  ResponseEntity.badRequest().build();
-   }
+        return ResponseEntity.badRequest().build();
+    }
 
-@DeleteMapping("/delete/{idMascota}")
-   public String deleteById(@PathVariable Long idMascota){
-        if(idMascota != null){
+    @DeleteMapping("/delete/{idMascota}")
+    public String deleteById(@PathVariable Long idMascota){
+        if (idMascota != null){
             serviceMascota.deleteById(idMascota);
-            return "se elimino la mascota";
+            return "Se elimino la mascota";
         }
-return "No se pudo eliminar la mascota";
-   }
-
+        return "No se pudo eliminar la mascota";
+    }
 
 
 }

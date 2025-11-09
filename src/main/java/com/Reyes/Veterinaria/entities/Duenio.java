@@ -21,7 +21,7 @@ public class Duenio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_duenio")
-private long idDueño;
+private long idDuenio;
 
     @NotBlank
 private String nombre;
@@ -38,7 +38,7 @@ private String apellidoMaterno;
     @Min(value=10)
 private String telefono;
 
-private String Correo;
+private String correo;
 
 
 @OneToMany(targetEntity = Mascota.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "duenio")

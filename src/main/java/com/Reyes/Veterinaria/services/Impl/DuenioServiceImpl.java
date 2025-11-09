@@ -23,7 +23,7 @@ public class DuenioServiceImpl implements IDuenioService {
 
     @Override
     public Optional<Duenio> findById(Long idDuenio) {
-        return dueniosdao.findById(id);
+        return dueniosdao.findById(idDuenio);
     }
 
     @Override

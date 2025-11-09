@@ -1,6 +1,8 @@
 package com.Reyes.Veterinaria.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -27,6 +29,9 @@ public class Mascota {
 
     @ManyToOne(targetEntity = Duenio.class)
     @JoinColumn(name="id_duenio")
+
+    @JsonBackReference
+//@JsonIgnore
 private  Duenio duenio;
 
 }

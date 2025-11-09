@@ -1,5 +1,7 @@
 package com.Reyes.Veterinaria.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -42,7 +44,8 @@ private String correo;
 
 
 @OneToMany(targetEntity = Mascota.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "duenio")
-
+@JsonManagedReference
+//@JsonIgnore
 private List<Mascota> mascotas;
 
 

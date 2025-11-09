@@ -9,7 +9,7 @@ public interface
 ICitaService
 {
     List<Cita>findAll();
-   Optional<Cita> findById(Long id );
+   Optional<Cita> findById(Long idCita );
     void save (Cita cita);
-    void deleteById(Long id);
+    void deleteById(Long idCita);
 }

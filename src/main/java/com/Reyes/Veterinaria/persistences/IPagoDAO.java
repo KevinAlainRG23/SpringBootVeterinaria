@@ -9,11 +9,11 @@ import java.util.Optional;
 public interface IPagoDAO {
 
     List<Pago> findAll();
-    Optional<Pago> findById(Long id);
+    Optional<Pago> findById(Long idPago);
 
     void save(Pago pago);
 
-    void deleteById(Long id);
+    void deleteById(Long idPago);
 
 
 

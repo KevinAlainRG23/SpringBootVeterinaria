@@ -22,8 +22,8 @@ public class CitaServiceImpl implements ICitaService {
     }
 
     @Override
-    public Optional<Cita> findById(Long id) {
-        return service.findById(id);
+    public Optional<Cita> findById(Long idCita) {
+        return service.findById(idCita);
     }
 
     @Override
@@ -32,8 +32,8 @@ public class CitaServiceImpl implements ICitaService {
     }
 
     @Override
-    public void deleteById(Long id) {
-       service.deleteById(id);
+    public void deleteById(Long idCita) {
+       service.deleteById(idCita);
     }
 
 }
